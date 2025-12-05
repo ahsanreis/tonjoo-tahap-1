@@ -5,6 +5,8 @@
   --theme-primary: #364F6B; /* primary */
   --theme-secondary: #3FC1C9; /* secondary */
   --theme-tertiary: #FC5185; /* tertiary */
+  --theme-primary-500: #405F7A;
+  --theme-primary-700: #2B4054;
 
   /* Background colors */
   --bg-primary: #FFFFFF; /* primary */
@@ -65,3 +67,18 @@ body {
 .theme-primary { color: var(--theme-primary); }
 .theme-secondary { color: var(--theme-secondary); }
 .theme-tertiary { color: var(--theme-tertiary); }
+
+/* Card / focus helpers */
+.focus-visible {
+  outline: 2px solid var(--theme-secondary);
+  outline-offset: 3px;
+  border-radius: 0.75rem;
+}
+
+/* Convenience card helpers (optional) */
+.card-bg { background-color: var(--bg-primary); }
+.card-bg-hover { background-color: var(--bg-tertiary); }
+.card-border { border-color: var(--bg-secondary); }
+.card-border-hover { border-color: var(--theme-primary); }
+.card-accent-icon { background-color: var(--theme-primary); color: var(--bg-primary); }
+.card-accent-icon-plain { background-color: var(--bg-secondary); color: var(--accent-secondary); }
