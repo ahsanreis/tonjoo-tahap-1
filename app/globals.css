@@ -1,13 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Theme colors */
+  --theme-primary: #364F6B; /* primary */
+  --theme-secondary: #3FC1C9; /* secondary */
+  --theme-tertiary: #FC5185; /* tertiary */
+
+  /* Background colors */
+  --bg-primary: #FFFFFF; /* primary */
+  --bg-secondary: #F8F8F8; /* secondary */
+  --bg-tertiary: #FAFAFA; /* tertiary */
+
+  /* Accent colors */
+  --accent-primary: #181616; /* primary */
+  --accent-secondary: #333333; /* secondary */
+  --accent-tertiary: #727272; /* tertiary */
+
+  /* Text colors */
+  --text-primary: #181616; /* primary */
+  --text-secondary: #333333; /* secondary */
+  --text-tertiary: #898989; /* tertiary */
+
+  /* Backwards-compatible variables (used by existing styles) */
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-theme-primary: var(--theme-primary);
+  --color-theme-secondary: var(--theme-secondary);
+  --color-theme-tertiary: var(--theme-tertiary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -24,3 +48,20 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Convenience utility classes (example usage) */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-tertiary { background-color: var(--bg-tertiary); }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+
+.accent-primary { color: var(--accent-primary); }
+.accent-secondary { color: var(--accent-secondary); }
+.accent-tertiary { color: var(--accent-tertiary); }
+
+.theme-primary { color: var(--theme-primary); }
+.theme-secondary { color: var(--theme-secondary); }
+.theme-tertiary { color: var(--theme-tertiary); }
