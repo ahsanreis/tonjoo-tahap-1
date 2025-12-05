@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Star } from "lucide-react";
 
 interface ProductCardProps {
@@ -25,7 +26,7 @@ export const ProductCard = ({ image, tags, title, rating, price, discount }: Pro
   };
 
   // Format currency (assuming IDR based on the image, but making it general)
-  const formatPrice = (value) => {
+  const formatPrice = (value: number): string => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
@@ -41,14 +42,16 @@ export const ProductCard = ({ image, tags, title, rating, price, discount }: Pro
     <div className="max-w-xs bg-white rounded-xl shadow-none transition-transform duration-300 hover:shadow-lg hover:scale-[1.02] cursor-pointer p-0">
       {/* Product Image Area */}
       <div className="p-2 aspect-[4/5] bg-gray-50 flex items-center justify-center rounded-t-xl overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={title}
+          width={400}
+          height={500}
           className="w-full h-full object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
           // Placeholder fallback in case the image URL is bad or missing
           onError={(e) => {
-            e.target.onerror = null; // prevents infinite loop
-            e.target.src = "https://placehold.co/400x500/F3F4F6/9CA3AF?text=No+Image";
+            (e.target as HTMLImageElement).onerror = null; // prevents infinite loop
+            (e.target as HTMLImageElement).src = "https://placehold.co/400x500/F3F4F6/9CA3AF?text=No+Image";
           }}
         />
       </div>

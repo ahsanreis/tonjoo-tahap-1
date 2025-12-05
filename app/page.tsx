@@ -220,6 +220,12 @@ export default function Home() {
             <SwiperSlide>
               <ProductCard image="/assets/img/background/hero1.jpg" tags="SPESIAL, DISKON" title="Penawaran Khusus Dengan Harga Istimewa" rating={4.5} price={1200000} discount={30} />
             </SwiperSlide>
+            <SwiperSlide>
+              <ProductCard image="/assets/img/background/hero1.jpg" tags="EKSKLUSIF, PROMO" title="Koleksi Eksklusif Dengan Penawaran Terbatas" rating={4.7} price={750000} discount={20} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <ProductCard image="/assets/img/background/hero1.jpg" tags="TRENDING, FAVORIT" title="Produk Trending Pilihan Konsumen Indonesia" rating={4.9} price={1050000} discount={18} />
+            </SwiperSlide>
 
             {/* Navigation Buttons */}
             <button
