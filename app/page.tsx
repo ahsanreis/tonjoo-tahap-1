@@ -195,13 +195,11 @@ export default function Home() {
             </button>
           </Swiper>
         </div>
-        {/* card here */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {cardData.map((card, index) => (
             <Card key={index} Icon={card.Icon} title={card.title} subtitle={card.subtitle} />
           ))}
         </div>
-        {/* swiper of products */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-12">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-2">Produk Pilihan</h2>
