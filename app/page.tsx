@@ -86,6 +86,17 @@ const swiperStyles = `
   }
 `;
 
+// Additional styles for product carousel navigation
+const productCarouselStyles = `
+  .products-button-prev, .products-button-next {
+    display: flex !important;
+  }
+
+  .products-pagination {
+    display: flex !important;
+  }
+`;
+
 export default function Home() {
   const heroImages = ["/assets/img/background/hero1.jpg", "/assets/img/background/hero1.jpg", "/assets/img/background/hero1.jpg"];
   // icons: shoes, gift, package, customer service
@@ -142,7 +153,7 @@ export default function Home() {
 
   React.useEffect(() => {
     const styleSheet = document.createElement("style");
-    styleSheet.textContent = swiperStyles;
+    styleSheet.textContent = swiperStyles + productCarouselStyles;
     document.head.appendChild(styleSheet);
     return () => styleSheet.remove();
   }, []);
@@ -196,55 +207,57 @@ export default function Home() {
             <h2 className="text-4xl font-extrabold text-gray-900 mb-2">Produk Pilihan</h2>
             <p className="text-lg text-gray-600">Temukan koleksi terbaik kami dengan harga spesial</p>
           </div>
-          <Swiper
-            modules={[Navigation, Pagination]}
-            navigation={{
-              nextEl: ".products-button-next",
-              prevEl: ".products-button-prev",
-            }}
-            pagination={{ clickable: true, el: ".products-pagination" }}
-            spaceBetween={24}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="relative"
-          >
-            <SwiperSlide>
-              <ProductCard image="/assets/img/background/hero1.jpg" tags="PREMIUM, TERBARU" title="Koleksi Premium Edisi Terbatas Eksklusif" rating={4.8} price={899000} discount={25} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard image="/assets/img/background/hero1.jpg" tags="BESTSELLER, POPULER" title="Produk Favorit Pilihan Pelanggan Setia" rating={4.6} price={650000} discount={15} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard image="/assets/img/background/hero1.jpg" tags="SPESIAL, DISKON" title="Penawaran Khusus Dengan Harga Istimewa" rating={4.5} price={1200000} discount={30} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard image="/assets/img/background/hero1.jpg" tags="EKSKLUSIF, PROMO" title="Koleksi Eksklusif Dengan Penawaran Terbatas" rating={4.7} price={750000} discount={20} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <ProductCard image="/assets/img/background/hero1.jpg" tags="TRENDING, FAVORIT" title="Produk Trending Pilihan Konsumen Indonesia" rating={4.9} price={1050000} discount={18} />
-            </SwiperSlide>
+          <div className="relative px-20">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              navigation={{
+                nextEl: ".products-button-next",
+                prevEl: ".products-button-prev",
+              }}
+              pagination={{ clickable: true, el: ".products-pagination" }}
+              spaceBetween={24}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="relative"
+            >
+              <SwiperSlide>
+                <ProductCard image="/assets/img/background/hero1.jpg" tags="PREMIUM, TERBARU" title="Koleksi Premium Edisi Terbatas Eksklusif" rating={4.8} price={899000} discount={25} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard image="/assets/img/background/hero1.jpg" tags="BESTSELLER, POPULER" title="Produk Favorit Pilihan Pelanggan Setia" rating={4.6} price={650000} discount={15} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard image="/assets/img/background/hero1.jpg" tags="SPESIAL, DISKON" title="Penawaran Khusus Dengan Harga Istimewa" rating={4.5} price={1200000} discount={30} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard image="/assets/img/background/hero1.jpg" tags="EKSKLUSIF, PROMO" title="Koleksi Eksklusif Dengan Penawaran Terbatas" rating={4.7} price={750000} discount={20} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <ProductCard image="/assets/img/background/hero1.jpg" tags="TRENDING, FAVORIT" title="Produk Trending Pilihan Konsumen Indonesia" rating={4.9} price={1050000} discount={18} />
+              </SwiperSlide>
 
-            {/* Navigation Buttons */}
-            <button
-              className="products-button-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 w-12 h-12 bg-theme-primary hover:bg-theme-primary-500 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-lg"
-              aria-label="Previous product"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-              </svg>
-            </button>
-            <button
-              className="products-button-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 w-12 h-12 bg-theme-primary hover:bg-theme-primary-500 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-lg"
-              aria-label="Next product"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5L15.75 12l-7.5 7.5" />
-              </svg>
-            </button>
-          </Swiper>
+              {/* Navigation Buttons */}
+              <button
+                className="products-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-theme-primary hover:bg-theme-primary-500 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-lg"
+                aria-label="Previous product"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+              <button
+                className="products-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-theme-primary hover:bg-theme-primary-500 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-lg"
+                aria-label="Next product"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5L15.75 12l-7.5 7.5" />
+                </svg>
+              </button>
+            </Swiper>
+          </div>
           <div className="products-pagination flex justify-center gap-2 mt-8" />
         </div>
       </main>
